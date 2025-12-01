@@ -328,7 +328,8 @@ class PostmanApiService
             return true;
         } catch (\Exception $e) {
             // Store the error for debugging
-            logger()->error('Postman API key validation failed: ' . $e->getMessage());
+            logger()->error('Postman API key validation failed: '.$e->getMessage());
+
             return false;
         }
     }

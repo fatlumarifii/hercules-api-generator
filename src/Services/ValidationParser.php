@@ -172,6 +172,11 @@ class ValidationParser
         $fields = [];
 
         foreach ($rules as $field => $rule) {
+            // Skip numeric keys (malformed rules)
+            if (! is_string($field)) {
+                continue;
+            }
+
             $fields[$field] = $this->parseField($field, $rule);
         }
 

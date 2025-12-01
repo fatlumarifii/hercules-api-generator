@@ -130,7 +130,7 @@ class SetupCommand extends Command
         $this->info('Validating API key...');
         $validation = $apiService->validateApiKeyWithError();
         if (! $validation['valid']) {
-            $this->error('❌ Invalid API key: ' . $validation['error']);
+            $this->error('❌ Invalid API key: '.$validation['error']);
             $this->error('Please check your key and try again.');
 
             return self::FAILURE;
