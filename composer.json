@@ -1,5 +1,5 @@
 {
-    "name": "hercules/api-generator",
+    "name": "itslh/hercules-api-generator",
     "description": "Automatic Postman collection generator for Laravel microservices with git hooks integration",
     "type": "library",
     "keywords": ["laravel", "postman", "api", "documentation", "git-hooks"],

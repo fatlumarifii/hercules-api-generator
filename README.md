@@ -1,6 +1,6 @@
 # Hercules API Generator
 
-[![Tests](https://github.com/hercules/api-generator/actions/workflows/tests.yml/badge.svg)](https://github.com/hercules/api-generator/actions/workflows/tests.yml)
+[![Tests](https://github.com/itslh/hercules-api-generator/actions/workflows/tests.yml/badge.svg)](https://github.com/itslh/hercules-api-generator/actions/workflows/tests.yml)
 
 Automatic Postman collection generator for Laravel microservices with git hooks integration and smart merging.
 
@@ -20,7 +20,7 @@ Automatic Postman collection generator for Laravel microservices with git hooks 
 ### 1. Install via Composer
 
 ```bash
-composer require hercules/api-generator
+composer require itslh/hercules-api-generator
 ```
 
 ### 2. Run Interactive Setup
