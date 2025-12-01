@@ -121,14 +121,17 @@ class SetupCommand extends Command
 
             // Reload config
             config(['hercules-api-generator.postman.api_key' => $apiKey]);
+            $apiService->reloadConfig();
         } else {
             $this->info('✓ Using existing API key from .env');
         }
 
         // Validate API key
         $this->info('Validating API key...');
-        if (! $apiService->validateApiKey()) {
-            $this->error('❌ Invalid API key. Please check your key and try again.');
+        $validation = $apiService->validateApiKeyWithError();
+        if (! $validation['valid']) {
+            $this->error('❌ Invalid API key: ' . $validation['error']);
+            $this->error('Please check your key and try again.');
 
             return self::FAILURE;
         }

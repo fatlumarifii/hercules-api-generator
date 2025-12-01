@@ -19,6 +19,15 @@ class PostmanApiService
     }
 
     /**
+     * Reload configuration (useful after updating .env).
+     */
+    public function reloadConfig(): void
+    {
+        $this->apiKey = config('hercules-api-generator.postman.api_key');
+        $this->baseUrl = config('hercules-api-generator.postman.api_base_url');
+    }
+
+    /**
      * Create a new collection in Postman.
      */
     public function createCollection(array $collection): array
@@ -318,7 +327,27 @@ class PostmanApiService
 
             return true;
         } catch (\Exception $e) {
+            // Store the error for debugging
+            logger()->error('Postman API key validation failed: ' . $e->getMessage());
             return false;
+        }
+    }
+
+    /**
+     * Validate API key and return error message if invalid.
+     */
+    public function validateApiKeyWithError(): array
+    {
+        if (! $this->apiKey) {
+            return ['valid' => false, 'error' => 'API key is not configured'];
+        }
+
+        try {
+            $this->listCollections();
+
+            return ['valid' => true, 'error' => null];
+        } catch (\Exception $e) {
+            return ['valid' => false, 'error' => $e->getMessage()];
         }
     }
 }
