@@ -8,9 +8,9 @@ use Illuminate\Support\Facades\Http;
 
 class PostmanApiService
 {
-    private string $apiKey;
+    private ?string $apiKey;
 
-    private string $baseUrl;
+    private ?string $baseUrl;
 
     public function __construct()
     {
