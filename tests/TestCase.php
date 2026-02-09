@@ -28,6 +28,7 @@ abstract class TestCase extends Orchestra
         config()->set('hercules-api-generator.collection.base_url', 'http://localhost');
         config()->set('hercules-api-generator.routes.prefix', 'api');
         config()->set('hercules-api-generator.postman.api_key', 'test-api-key');
+        config()->set('app.key', 'base64:'.base64_encode(str_repeat('a', 32)));
     }
 
     protected function defineDatabaseMigrations()

@@ -237,4 +237,34 @@ return [
         // Download existing collection before updating
         'download_before_update' => true,
     ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | API Documentation Page
+    |--------------------------------------------------------------------------
+    |
+    | Configure the served-at-runtime HTML documentation page.
+    | Enable by setting API_DOCS_ENABLED=true in your .env file.
+    |
+    */
+
+    'documentation' => [
+        // Enable/disable the documentation page
+        'enabled' => env('API_DOCS_ENABLED', false),
+
+        // URL path where documentation is served
+        'path' => env('API_DOCS_PATH', 'docs/api'),
+
+        // Page title
+        'title' => env('API_DOCS_TITLE', env('APP_NAME', 'Laravel').' API Documentation'),
+
+        // Page description
+        'description' => env('API_DOCS_DESCRIPTION', ''),
+
+        // Middleware applied to the documentation route
+        'middleware' => ['web'],
+
+        // Group endpoints by (null inherits from routes.group_by)
+        'group_by' => null,
+    ],
 ];
